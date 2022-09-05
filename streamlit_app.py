@@ -13,7 +13,8 @@ def save_uploaded_file(directory, file):
         os.makedirs(directory)
     with open(os.path.join(directory, file.name), "wb") as f:
         f.write(file.getbuffer())
-    return st.success("Saved file :{} in {}".format(file.name, directory))
+    return
+    # return st.success("Saved file :{} in {}".format(file.name, directory))
 
 
 def latlon2tm(lat, lon):
@@ -58,7 +59,7 @@ def to_excel(df):
 
 data_file = st.file_uploader("file upload")
 if data_file is not None:
-    st.write(type(data_file))
+    # st.write(type(data_file))
     save_uploaded_file('uploads', data_file)
 
     if data_file.name.endswith("csv"):
